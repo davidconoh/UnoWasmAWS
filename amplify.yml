@@ -12,7 +12,7 @@ frontend:
       - cd MyApp.Wasm
       - dotnet build -c Release
   artifacts:
-    baseDirectory: /release/wwwroot
+    baseDirectory: ./MyApp.Wasm/wwwroot
     files:
     - '**/*'
   cache:
