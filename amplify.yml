@@ -10,7 +10,7 @@ frontend:
     build:
       commands:
       - cd MyApp.Wasm
-      - ./dotnet6/dotnet build -c Release
+      - dotnet build -c Release
   artifacts:
     baseDirectory: /release/wwwroot
     files:
