@@ -3,17 +3,17 @@ frontend:
   phases:
     preBuild:
       commands:
-      - curl -sSL https://dot.net/v1/dotnet-install.sh > dotnet-install.sh
-      - chmod +x *.sh
-      - ./dotnet-install.sh -c 6.0 -InstallDir ./dotnet6
-      - ./dotnet6/dotnet --version
+        - cd UnoWasmAWS.Wasm
+        - curl -sSL https://dot.net/v1/dotnet-install.sh > dotnet-install.sh
+        - chmod +x *.sh
+        - ./dotnet-install.sh -c 7.0 -InstallDir ./dotnet7
+        - ./dotnet7/dotnet --version
     build:
       commands:
-      - cd MyApp.Wasm
-      - dotnet build -c Release
+        - ./dotnet7/dotnet publish -c Release -o release
   artifacts:
-    baseDirectory: ./MyApp.Wasm/wwwroot
+    baseDirectory: /UnoWasmAWS.Wasm/release/
     files:
-    - '**/*'
+      - '**/*'
   cache:
     paths: []
